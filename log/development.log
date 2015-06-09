@@ -1,0 +1,1284 @@
+  [1m[36m (19.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (17.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateInstructors (20150511133416)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "instructors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "last_name" varchar(255), "first_name" varchar(255), "hire_date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150511133416"]]
+  [1m[35m (17.4ms)[0m  commit transaction
+Migrating to CreateStudents (20150511133536)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "students" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "last_name" varchar(255), "first_name" varchar(255), "enrollment_date" date, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150511133536"]]
+  [1m[35m (15.0ms)[0m  commit transaction
+Migrating to CreateDepartments (20150511133745)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "departments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "budget" float, "start_date" date, "instructor_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150511133745"]]
+  [1m[35m (23.2ms)[0m  commit transaction
+Migrating to CreateCourses (20150511133857)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "courses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "number" integer, "title" varchar(255), "credits" integer, "department_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150511133857"]]
+  [1m[35m (17.1ms)[0m  commit transaction
+Migrating to CreateEnrollments (20150511133936)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "enrollments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "grade" varchar(255), "student_id" integer, "course_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150511133936"]]
+  [1m[35m (12.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:15:03 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  Rendered courses/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 3590ms (Views: 3542.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:07 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:08 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:08 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:08 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:08 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:08 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 14:15:08 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:17:30 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 143ms (Views: 141.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 14:17:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "instructors" ("created_at", "first_name", "hire_date", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 14:19:27.202980"], ["first_name", "Hardknock"], ["hire_date", "1978-12-20"], ["last_name", "Life"], ["updated_at", "2015-05-11 14:19:27.202980"]]
+  [1m[35m (38.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("created_at", "enrollment_date", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-05-11 14:19:27.263801"], ["enrollment_date", "2014-06-01"], ["first_name", "Joe"], ["last_name", "Cool"], ["updated_at", "2015-05-11 14:19:27.263801"]]
+  [1m[36m (17.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "students" ("created_at", "enrollment_date", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 14:19:27.283098"], ["enrollment_date", "2014-06-01"], ["first_name", "Jane"], ["last_name", "Hacker"], ["updated_at", "2015-05-11 14:19:27.283098"]]
+  [1m[35m (13.4ms)[0m  commit transaction
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors"   ORDER BY "instructors"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("budget", "created_at", "instructor_id", "name", "start_date", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["budget", 750.0], ["created_at", "2015-05-11 14:19:27.311284"], ["instructor_id", 1], ["name", "Code Slinging"], ["start_date", "2014-01-01"], ["updated_at", "2015-05-11 14:19:27.311284"]]
+  [1m[35m (12.1ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 14:19:27.332936"], ["credits", 3], ["department_id", 1], ["number", 1111], ["title", "The Joy of Code"], ["updated_at", "2015-05-11 14:19:27.332936"]]
+  [1m[35m (15.8ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 14:19:27.351481"], ["credits", 3], ["department_id", 1], ["number", 2222], ["title", "Zen Debugging"], ["updated_at", "2015-05-11 14:19:27.351481"]]
+  [1m[35m (15.1ms)[0m  commit transaction
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors"   ORDER BY "instructors"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("budget", "created_at", "instructor_id", "name", "start_date", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["budget", 50.0], ["created_at", "2015-05-11 14:19:27.369064"], ["instructor_id", 1], ["name", "Cat Herding"], ["start_date", "2014-01-01"], ["updated_at", "2015-05-11 14:19:27.369064"]]
+  [1m[35m (16.9ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 14:19:27.388471"], ["credits", 3], ["department_id", 2], ["number", 3333], ["title", "Message Spinning"], ["updated_at", "2015-05-11 14:19:27.388471"]]
+  [1m[35m (15.0ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 14:19:27.405899"], ["credits", 3], ["department_id", 2], ["number", 4444], ["title", "Ego Wrangling"], ["updated_at", "2015-05-11 14:19:27.405899"]]
+  [1m[35m (18.4ms)[0m  commit transaction
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" DESC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "enrollments" ("course_id", "created_at", "grade", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_id", 1], ["created_at", "2015-05-11 14:19:27.433361"], ["grade", "A"], ["student_id", 2], ["updated_at", "2015-05-11 14:19:27.433361"]]
+  [1m[36m (16.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"   ORDER BY "students"."id" DESC LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "enrollments" ("course_id", "created_at", "grade", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["course_id", 4], ["created_at", "2015-05-11 14:19:27.453346"], ["grade", "A"], ["student_id", 2], ["updated_at", "2015-05-11 14:19:27.453346"]]
+  [1m[35m (17.9ms)[0m  commit transaction
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "enrollments" ("course_id", "created_at", "grade", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_id", 1], ["created_at", "2015-05-11 14:19:27.473976"], ["grade", "B"], ["student_id", 1], ["updated_at", "2015-05-11 14:19:27.473976"]]
+  [1m[36m (13.2ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:19:42 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  Rendered courses/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 205ms (Views: 176.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 14:19:43 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:32:47 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  Rendered courses/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 209ms (Views: 181.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:48 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:49 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:49 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:49 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 14:32:49 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:46:28 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  Rendered courses/index.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 82ms
+
+ActionView::Template::Error (Invalid CSS after "  background-color": expected ";", was ": #fff;"
+  (in /home/action/workspace/rails/RailsU/app/assets/stylesheets/scaffolds.css.scss:3)):
+    4:   <title>Rails University</title>
+    5:   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" type="text/css">
+    6:   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" type="text/css">
+    7:   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    8:   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    9:   <%= csrf_meta_tags %>
+   10:   <script src="//code.jquery.com/jquery-2.1.3.js"></script>
+  app/assets/stylesheets/scaffolds.css.scss:3
+  app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb__3484717022630535843_70035686144740'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.1.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.4ms)
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:48:08 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 182ms (Views: 181.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 14:48:09 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 14:58:24 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  Rendered courses/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 210ms (Views: 181.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:25 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:26 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:26 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:26 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:26 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:26 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 14:58:26 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 15:01:30 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  Rendered courses/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 150ms (Views: 149.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:01:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "instructors" ("created_at", "first_name", "hire_date", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 15:03:26.487421"], ["first_name", "Hardknock"], ["hire_date", "1978-12-20"], ["last_name", "Life"], ["updated_at", "2015-05-11 15:03:26.487421"]]
+  [1m[35m (33.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "students" ("created_at", "enrollment_date", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["created_at", "2015-05-11 15:03:26.530153"], ["enrollment_date", "2014-06-01"], ["first_name", "Joe"], ["last_name", "Cool"], ["updated_at", "2015-05-11 15:03:26.530153"]]
+  [1m[36m (13.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "students" ("created_at", "enrollment_date", "first_name", "last_name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 15:03:26.544977"], ["enrollment_date", "2014-06-01"], ["first_name", "Jane"], ["last_name", "Hacker"], ["updated_at", "2015-05-11 15:03:26.544977"]]
+  [1m[35m (12.7ms)[0m  commit transaction
+  [1m[36mInstructor Load (0.3ms)[0m  [1mSELECT  "instructors".* FROM "instructors"   ORDER BY "instructors"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "departments" ("budget", "created_at", "instructor_id", "name", "start_date", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["budget", 750.0], ["created_at", "2015-05-11 15:03:26.572831"], ["instructor_id", 2], ["name", "Code Slinging"], ["start_date", "2014-01-01"], ["updated_at", "2015-05-11 15:03:26.572831"]]
+  [1m[35m (18.1ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 15:03:26.601491"], ["credits", 3], ["department_id", 3], ["number", 101], ["title", "The Joy of Code"], ["updated_at", "2015-05-11 15:03:26.601491"]]
+  [1m[35m (23.0ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 15:03:26.627329"], ["credits", 3], ["department_id", 3], ["number", 202], ["title", "Zen Debugging"], ["updated_at", "2015-05-11 15:03:26.627329"]]
+  [1m[35m (22.0ms)[0m  commit transaction
+  [1m[36mInstructor Load (0.2ms)[0m  [1mSELECT  "instructors".* FROM "instructors"   ORDER BY "instructors"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "departments" ("budget", "created_at", "instructor_id", "name", "start_date", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["budget", 50.0], ["created_at", "2015-05-11 15:03:26.652180"], ["instructor_id", 2], ["name", "Cat Herding"], ["start_date", "2014-01-01"], ["updated_at", "2015-05-11 15:03:26.652180"]]
+  [1m[35m (21.7ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 15:03:26.676741"], ["credits", 3], ["department_id", 4], ["number", 303], ["title", "Message Spinning"], ["updated_at", "2015-05-11 15:03:26.676741"]]
+  [1m[35m (17.3ms)[0m  commit transaction
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"   ORDER BY "departments"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "courses" ("created_at", "credits", "department_id", "number", "title", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", "2015-05-11 15:03:26.696659"], ["credits", 3], ["department_id", 4], ["number", 404], ["title", "Ego Wrangling"], ["updated_at", "2015-05-11 15:03:26.696659"]]
+  [1m[35m (19.0ms)[0m  commit transaction
+  [1m[36mStudent Load (0.3ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" DESC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "enrollments" ("course_id", "created_at", "grade", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_id", 1], ["created_at", "2015-05-11 15:03:26.725035"], ["grade", "A"], ["student_id", 4], ["updated_at", "2015-05-11 15:03:26.725035"]]
+  [1m[36m (24.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mStudent Load (0.2ms)[0m  SELECT  "students".* FROM "students"   ORDER BY "students"."id" DESC LIMIT 1
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" DESC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "enrollments" ("course_id", "created_at", "grade", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["course_id", 8], ["created_at", "2015-05-11 15:03:26.752783"], ["grade", "A"], ["student_id", 4], ["updated_at", "2015-05-11 15:03:26.752783"]]
+  [1m[35m (18.3ms)[0m  commit transaction
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"   ORDER BY "students"."id" ASC LIMIT 1[0m
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"   ORDER BY "courses"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "enrollments" ("course_id", "created_at", "grade", "student_id", "updated_at") VALUES (?, ?, ?, ?, ?)  [["course_id", 1], ["created_at", "2015-05-11 15:03:26.774025"], ["grade", "B"], ["student_id", 1], ["updated_at", "2015-05-11 15:03:26.774025"]]
+  [1m[36m (20.4ms)[0m  [1mcommit transaction[0m
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 15:11:19 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (81.9ms)
+Completed 200 OK in 278ms (Views: 247.3ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:20 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 15:11:42 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 150ms (Views: 148.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:42 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:11:43 +0000
+
+
+Started GET "/" for 192.151.143.67 at 2015-05-11 15:13:36 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mDepartment Load (0.3ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (42.8ms)
+Completed 200 OK in 237ms (Views: 206.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:37 +0000
+
+
+Started DELETE "/courses/1" for 192.151.143.67 at 2015-05-11 15:13:44 +0000
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wIG1nHwJR7KZtUpzFM3n4GmH1Pn0adHdAJNUnxscYmw=", "id"=>"1"}
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 1]]
+  [1m[35m (29.3ms)[0m  commit transaction
+Redirected to http://muscular-highgarden-69-222409.use1-2.nitrousbox.com/courses
+Completed 302 Found in 33ms (ActiveRecord: 30.1ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:13:45 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 141ms (Views: 139.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:46 +0000
+
+
+Started DELETE "/courses/2" for 192.151.143.67 at 2015-05-11 15:13:50 +0000
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wIG1nHwJR7KZtUpzFM3n4GmH1Pn0adHdAJNUnxscYmw=", "id"=>"2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "courses" WHERE "courses"."id" = ?[0m  [["id", 2]]
+  [1m[35m (23.2ms)[0m  commit transaction
+Redirected to http://muscular-highgarden-69-222409.use1-2.nitrousbox.com/courses
+Completed 302 Found in 27ms (ActiveRecord: 23.8ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:13:51 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 109ms (Views: 107.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:52 +0000
+
+
+Started DELETE "/courses/3" for 192.151.143.67 at 2015-05-11 15:13:57 +0000
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wIG1nHwJR7KZtUpzFM3n4GmH1Pn0adHdAJNUnxscYmw=", "id"=>"3"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 3]]
+  [1m[36m (19.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://muscular-highgarden-69-222409.use1-2.nitrousbox.com/courses
+Completed 302 Found in 22ms (ActiveRecord: 19.8ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:13:57 +0000
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 115ms (Views: 114.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:13:58 +0000
+
+
+Started DELETE "/courses/4" for 192.151.143.67 at 2015-05-11 15:14:02 +0000
+Processing by CoursesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"wIG1nHwJR7KZtUpzFM3n4GmH1Pn0adHdAJNUnxscYmw=", "id"=>"4"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  DELETE FROM "courses" WHERE "courses"."id" = ?  [["id", 4]]
+  [1m[36m (25.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://muscular-highgarden-69-222409.use1-2.nitrousbox.com/courses
+Completed 302 Found in 31ms (ActiveRecord: 28.5ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.3ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 114ms (Views: 112.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:03 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:04 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:04 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:04 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:04 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:04 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:04 +0000
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:14:11 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 112ms (Views: 110.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:12 +0000
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:14:33 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CoursesController#index as HTML
+  [1m[35mCourse Load (0.2ms)[0m  SELECT "courses".* FROM "courses"
+  [1m[36mDepartment Load (0.2ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mDepartment Load (0.1ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (34.6ms)
+Completed 200 OK in 230ms (Views: 201.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:34 +0000
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 147ms (Views: 145.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/pages.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/courses.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/instructors.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/scaffolds.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/departments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/enrollments.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/students.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:38 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/application.css?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/courses.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/departments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/pages.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/students.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/instructors.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/assets/enrollments.js?body=1" for 192.151.143.67 at 2015-05-11 15:14:39 +0000
+
+
+Started GET "/courses/5" for 192.151.143.67 at 2015-05-11 15:14:57 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mCourse Load (0.3ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered courses/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 114ms (Views: 112.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:15:01 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 145ms (Views: 143.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/6" for 192.151.143.67 at 2015-05-11 15:15:15 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered courses/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 95ms (Views: 93.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:15:18 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 101ms (Views: 99.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/5/edit" for 192.151.143.67 at 2015-05-11 15:15:30 +0000
+Processing by CoursesController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mCourse Load (0.2ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered courses/_form.html.erb (63.8ms)
+  Rendered courses/edit.html.erb within layouts/application (81.9ms)
+Completed 200 OK in 182ms (Views: 180.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 192.151.143.67 at 2015-05-11 15:16:18 +0000
+Processing by CoursesController#index as HTML
+  [1m[36mCourse Load (0.2ms)[0m  [1mSELECT "courses".* FROM "courses"[0m
+  [1m[35mDepartment Load (0.2ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDepartment Load (0.1ms)[0m  SELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "departments".* FROM "departments"  WHERE "departments"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered courses/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 104ms (Views: 102.3ms | ActiveRecord: 0.6ms)
